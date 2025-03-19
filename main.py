@@ -233,7 +233,7 @@ async def run_with_token(token):
 async def main():
     # Load tokens from the file
     try:
-        with open('token_list.txt', 'r') as file:
+        with open('tokens.txt', 'r') as file:
             tokens = file.read().splitlines()
     except Exception as e:
         logger.error(f"Error reading token list: {e}")
@@ -245,7 +245,7 @@ async def main():
 
     # Load proxies from the file
     global proxies
-    proxies = load_proxies('local_proxies.txt')
+    proxies = load_proxies('proxies.txt')
 
     tasks = []
     for token in tokens:
@@ -255,6 +255,7 @@ async def main():
     await asyncio.gather(*tasks)
 
 if __name__ == '__main__':
+    print("\nAlright, we here! The tool will now use multiple tokens and proxies.")
     try:
         asyncio.run(main())
     except (KeyboardInterrupt, SystemExit):
