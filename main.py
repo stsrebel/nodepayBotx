@@ -7,7 +7,7 @@ from fake_useragent import UserAgent
 import datetime
 
 # Constants
-PING_INTERVAL = 20*60
+PING_INTERVAL = 1*60
 RETRIES = 60
 
 DOMAIN_API = {
